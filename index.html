@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(0, 156, 83);
+        }
+
+        button {
+            border-radius: 20%;
+            padding: 10px;
+            font-size: large;
+            font-weight: bold;
+            color: white;
+            background-color: rgb(49, 49, 214);
+            border-color: grey;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .title {
+            font-size: x-large;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 20%;
+            padding: 20px;
+            font-weight: bold;
+
+
+        }
+
+        .result {
+            font-size: large;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 20%;
+            padding: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Password Generator</div>
+        <button onclick="printpassword()">Generate</button>
+        <div id="result" class="result"></div>
+    </div>
+    <script>
+        function printpassword() {
+            const letters_small = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+            const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            const capitalizedLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+            const special_caracters = ['#', '!', '~', '_', '-']
+
+            const randomIndex1 = Math.floor(Math.random() * letters_small.length);
+            const randomIndex2 = Math.floor(Math.random() * numbers.length);
+            const randomIndex3 = Math.floor(Math.random() * capitalizedLetters.length);
+            const randomIndex4 = Math.floor(Math.random() * special_caracters.length);
+
+            const l1 = letters_small[randomIndex1];
+            const n1 = numbers[randomIndex1 % numbers.length];
+            const l2 = letters_small[randomIndex2];
+            const n2 = numbers[randomIndex2 % numbers.length];
+            const n3 = numbers[randomIndex3 % numbers.length];
+            const n4 = numbers[randomIndex1 % numbers.length];
+            const l3 = letters_small[randomIndex3];
+            const l4 = letters_small[randomIndex1];
+            const L1 = capitalizedLetters[randomIndex1 % capitalizedLetters.length];
+            const L2 = capitalizedLetters[randomIndex2 % capitalizedLetters.length];
+            const L3 = capitalizedLetters[randomIndex3 % capitalizedLetters.length];
+            const L4 = capitalizedLetters[randomIndex1 % capitalizedLetters.length];
+            const s = special_caracters[randomIndex4]
+
+            let Password = l1 + n1 + l2 + n2 + L2 + l3 + l4 + L1 + L3 + L4 + n3 + n4 + s;
+            document.getElementById("result").innerHTML = Password;
+        }
+    </script>
+</body>
+
+</html>
